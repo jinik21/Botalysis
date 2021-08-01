@@ -19,6 +19,5 @@ request(authOptions, (err, res, body) => {
     console.error('error posting json: ', err);
     throw err
   }
-
   console.log(JSON.stringify(body, null, 2));
 });
