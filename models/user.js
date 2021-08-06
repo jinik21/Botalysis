@@ -30,6 +30,10 @@ const userSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  admin: {
+    type: Boolean,
+    default: false
   }
 });
 module.exports = mongoose.model("User", userSchema);
