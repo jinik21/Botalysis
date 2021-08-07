@@ -1,5 +1,5 @@
 const appId = require("../config/keys").symbl_key.APP_ID;
-const appSecret = require("../config/keys").symbl_key.APP_SECRET;;
+const appSecret = require("../config/keys").symbl_key.APP_SECRET;
 const axios = require('axios');
 
 const authOptions = {
