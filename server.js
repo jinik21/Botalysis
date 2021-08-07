@@ -9,7 +9,7 @@ const db = require("./config/keys").mongodb.mongoURI;
 const signin=require('./controllers/signin');
 const signup=require('./controllers/signup');
 const Schema=require('./models/user');
-
+const symblToken=require('./controllers/tokenrequest');
 
 const app = express();
 app.use(bodyParser.json());
@@ -31,7 +31,13 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+
+//Routes
+
+
 app.get('/',(req,resp)=>{resp.send('working ')})
+app.get('/symbl-token',(req,resp)=>{symblToken.generatetoken(req,resp)});
 app.post('/api/signin',(req,resp)=>{signin.handlesignin(req,resp,User)})
 app.post('/api/signup',(req,resp)=>{signup.handlesignup(req,resp,User)})
 
