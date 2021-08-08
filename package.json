@@ -23,6 +23,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "fs": "*",
     "mongoose": "^5.13.5",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.12",
