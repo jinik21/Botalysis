@@ -19,8 +19,17 @@ const handlesignup=(req,resp,User)=>{
                      //console.log(err);
                      return resp.status(400).json("Incorrect form submission");
                 }
-                 else
-                 return resp.status(200).json("Correct submission");
+                 else{
+                    var jsonObject = 
+                    {
+                        "email": result.email,
+        "name": result.name,
+        "phone": result.phone,
+        "branch": result.branch,
+        "picture": result.picture,
+                    }
+                 return resp.status(200).json(jsonObject);
+                 }
                 });
             }
         }

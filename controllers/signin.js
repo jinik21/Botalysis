@@ -27,7 +27,15 @@ const handlesignin=(req,resp,User)=>{
                     else
                     {
                         //console.log("logged in");
-                        return resp.status(200).json("Logged in");
+                        var jsonObject = 
+                {
+                    "email": result.email,
+    "name": result.name,
+    "phone": result.phone,
+    "branch": result.branch,
+    "picture": result.picture,
+                }
+                        return resp.status(200).json(jsonObject);
                     }
                 }
     });
