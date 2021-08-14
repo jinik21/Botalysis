@@ -3,7 +3,7 @@ const fs = require('fs');
 const axios = require('axios');
 const { response } = require('express');
 
-
+const audio=require('./audio');
 // const webhookUrl = "WEBHOOK_URL";
 // const audioFileStream = fs.createReadStream("/root/Botalysis/store/audio.wav");
   
@@ -33,11 +33,14 @@ const processAudio=async (req,resp,Audio)=>{
 //   console.log('Status code: ', statusCode);
 //   console.log('Body', response.body);
 // console.log('resp:::::::',response);
-const audio=new Audio({
+// const final=audio.audio(req,response ,response.data.conversationId)
+// .then((res)=>{
+const audiou=new Audio({
   email:req.body.email,audiolink:req.body.link,conversationId:response.data.conversationId,jobId:response.data.jobId
 })
-audio.save();
-  resp.json(response.data);
+audiou.save();
+// });
+resp.json('User Added');
 });
 }
 

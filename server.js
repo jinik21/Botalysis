@@ -12,6 +12,8 @@ const Schema=require('./models/user');
 const AudioSchema=require('./models/audiouser');
 const symblToken=require('./controllers/tokenrequest');
 const audioProcess=require('./controllers/audioprocess');
+const audio=require('./controllers/audio');
+
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -43,7 +45,7 @@ app.get('/symbl-token',(req,resp)=>{symblToken.generatetoken(req,resp)});
 app.post('/api/signin',(req,resp)=>{signin.handlesignin(req,resp,User)})
 app.post('/api/signup',(req,resp)=>{signup.handlesignup(req,resp,User)})
 app.post('/api/process_audio',(req,resp)=>{audioProcess.processAudio(req,resp,Audio)});
-
+app.get('/api/sentiment',(req,resp)=>{audio.audio(req,resp,req.body.cid)});
 
 const port=process.env.PORT|| 3001;
 app.listen(port,()=>{
