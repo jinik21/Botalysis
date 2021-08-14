@@ -9,8 +9,9 @@ const { response } = require('express');
   
 
 
-const processAudio=async (req,resp)=>{
+const processAudio=async (req,resp,Audio)=>{
     const authToken = await axios.get("http://localhost:3001/symbl-token");
+    
     const audioOption = {
         method: 'post',
         url: 'https://api.symbl.ai/v1/process/audio/url',
@@ -19,7 +20,7 @@ const processAudio=async (req,resp)=>{
           'Content-Type': 'application/json'
         },
         data: {
-          url: "https://cdn.sndup.net/2vd6/audio.wav?token=MW_jjj6jgQ_vO6cC_VhEhEzDoFpOQCHItndgpoaA2co&token_path=%2F2vd6%2F&expires=1628420213",
+          url: req.body.link,
         }
       };
     
@@ -29,10 +30,13 @@ const processAudio=async (req,resp)=>{
 //   if (err || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
 //     throw new Error(responses[statusCode]);
 //}
-
 //   console.log('Status code: ', statusCode);
 //   console.log('Body', response.body);
-console.log('err:::::::',response);
+// console.log('resp:::::::',response);
+const audio=new Audio({
+  email:req.body.email,audiolink:req.body.link,conversationId:response.data.conversationId,jobId:response.data.jobId
+})
+audio.save();
   resp.json(response.data);
 });
 }

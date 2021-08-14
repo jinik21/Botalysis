@@ -9,6 +9,7 @@ const db = require("./config/keys").mongodb.mongoURI;
 const signin=require('./controllers/signin');
 const signup=require('./controllers/signup');
 const Schema=require('./models/user');
+const AudioSchema=require('./models/audiouser');
 const symblToken=require('./controllers/tokenrequest');
 const audioProcess=require('./controllers/audioprocess');
 const app = express();
@@ -27,6 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const User=mongoose.model("User",Schema);
+const Audio=mongoose.model("AudioUser",AudioSchema);
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -40,7 +42,7 @@ app.get('/',(req,resp)=>{resp.send('working ')})
 app.get('/symbl-token',(req,resp)=>{symblToken.generatetoken(req,resp)});
 app.post('/api/signin',(req,resp)=>{signin.handlesignin(req,resp,User)})
 app.post('/api/signup',(req,resp)=>{signup.handlesignup(req,resp,User)})
-app.post('/api/process_audio',(req,resp)=>{audioProcess.processAudio(req,resp)});
+app.post('/api/process_audio',(req,resp)=>{audioProcess.processAudio(req,resp,Audio)});
 
 
 const port=process.env.PORT|| 3001;
