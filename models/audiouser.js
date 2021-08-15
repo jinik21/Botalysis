@@ -18,6 +18,18 @@ const useraudioSchema = new Schema({
     type: String,
     required: true
   },
+  positive: {
+    type: Number,
+    required: false
+  },
+  neutral: {
+    type: Number,
+    required: false
+  },
+  negative: {
+    type: Number,
+    required: false
+  },
   sentiment: {
     type: Number,
     required: false
