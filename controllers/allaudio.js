@@ -59,14 +59,7 @@ const audio = async (req, resp, email,Audio) => {
       const pospercent=(positive*100)/sm;
       const negpercent=(negative*100)/sm;
       const nuetpercent=(neutral*100)/sm;
-      const sent=0;
-      if(pospercent>negpercent && pospercent>nuetpercent )
-      sent=1;
-      else if(pospercent<negpercent && negpercent>nuetpercent)
-      sent=-1;
-      else
-      sent=0;
-      us.update({positive:pospercent,negative:negpercent,neutral:nuetpercent,sentiment:sent},function (err, result) {
+      us.update({positive:pospercent,negative:negpercent,neutral:nuetpercent},function (err, result) {
         if (err){
             console.log(err)
         }else{
