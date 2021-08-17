@@ -14,6 +14,10 @@ const symblToken=require('./controllers/tokenrequest');
 const audioProcess=require('./controllers/audioprocess');
 const audio=require('./controllers/audio');
 const allAudio=require('./controllers/allaudio');
+const allAudiouser=require('./controllers/allaudiouser');
+const alluser=require('./controllers/alluser');
+
+
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -47,6 +51,8 @@ app.post('/api/signup',(req,resp)=>{signup.handlesignup(req,resp,User)})
 app.post('/api/process_audio',(req,resp)=>{audioProcess.processAudio(req,resp,Audio)});
 app.get('/api/sentiment',(req,resp)=>{audio.audio(req,resp,req.body.email,Audio)});
 app.get('/api/allsentimentuser',(req,resp)=>{allAudio.allaudio(req,resp,req.body.email,Audio)});
+app.get('/api/allusersaudioadmin',(req,resp)=>{allAudiouser.allaudiousers(req,resp,req.body.email,Audio)});
+app.get('/api/allusersadmin',(req,resp)=>{alluser.allusers(req,resp,User)});
 
 const port=process.env.PORT|| 3001;
 app.listen(port,()=>{
