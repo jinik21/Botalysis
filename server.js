@@ -26,7 +26,7 @@ app.use(session({
     resave:false,
     saveUninitialized:false
 }));
-mongoose.connect(db,{ useNewUrlParser: true,useUnifiedTopology: true })
+mongoose.connect(db,{ useNewUrlParser: true,useUnifiedTopology: true})
 .then(() => console.log("MongoDB successfully connected"))
 .catch(err => console.log(err));
 Schema.plugin(passport_mongoose);

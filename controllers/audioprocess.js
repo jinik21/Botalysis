@@ -11,7 +11,7 @@ const audio=require('./audio');
 
 const processAudio=async (req,resp,Audio)=>{
     const authToken = await axios.get("http://localhost:3001/symbl-token");
-    
+    console.log(req.body)
     const audioOption = {
         method: 'post',
         url: 'https://api.symbl.ai/v1/process/audio/url',
@@ -24,7 +24,7 @@ const processAudio=async (req,resp,Audio)=>{
         }
       };
     
-    await axios(audioOption) 
+  try{  await axios(audioOption) 
 .then((response, err) => {;
 //   console.log(authToken);
 //   if (err || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
@@ -43,6 +43,11 @@ audiou.save();
 resp.json('Audio Added Successfully');
 });
 }
+catch{
+  resp.json("Error while processing")
+}
+}
+
 
 module.exports={
     processAudio:processAudio
