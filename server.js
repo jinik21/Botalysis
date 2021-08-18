@@ -49,9 +49,9 @@ app.get('/symbl-token',(req,resp)=>{symblToken.generatetoken(req,resp)});
 app.post('/api/signin',(req,resp)=>{signin.handlesignin(req,resp,User)})
 app.post('/api/signup',(req,resp)=>{signup.handlesignup(req,resp,User)})
 app.post('/api/process_audio',(req,resp)=>{audioProcess.processAudio(req,resp,Audio)});
-app.get('/api/sentiment',(req,resp)=>{audio.audio(req,resp,req.body.email,Audio)});
-app.get('/api/allsentimentuser',(req,resp)=>{allAudio.allaudio(req,resp,req.body.email,Audio)});
-app.get('/api/allusersaudioadmin',(req,resp)=>{allAudiouser.allaudiousers(req,resp,req.body.email,Audio)});
+app.post('/api/sentiment',(req,resp)=>{audio.audio(req,resp,req.body.email,Audio)});
+app.post('/api/allsentimentuser',(req,resp)=>{allAudio.allaudio(req,resp,req.body.email,Audio)});
+app.post('/api/allusersaudioadmin',(req,resp)=>{allAudiouser.allaudiousers(req,resp,req.body.email,Audio)});
 app.get('/api/allusersadmin',(req,resp)=>{alluser.allusers(req,resp,User)});
 
 const port=process.env.PORT|| 3001;

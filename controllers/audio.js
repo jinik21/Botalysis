@@ -39,7 +39,7 @@ const audio = async (req, resp, email,Audio) => {
       var negative = 0;
       var neutral = 0;
       var messages=response.data.messages;
-      console.log(messages[1].sentiment.polarity.score);
+      console.log(messages);
       for (var i=0; i < messages.length; i++) {
         // console.log(messages[i]);
         if (messages[i].sentiment.polarity.score <= 0.3 && messages[i].sentiment.polarity.score >= -0.3) {
@@ -59,7 +59,7 @@ const audio = async (req, resp, email,Audio) => {
       const pospercent=(positive*100)/sm;
       const negpercent=(negative*100)/sm;
       const nuetpercent=(neutral*100)/sm;
-      const sent=0;
+      var sent=0;
       if(pospercent>negpercent && pospercent>nuetpercent )
       sent=1;
       else if(pospercent<negpercent && negpercent>nuetpercent)
