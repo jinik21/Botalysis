@@ -23,10 +23,10 @@ const handlesignup=(req,resp,User)=>{
                     var jsonObject = 
                     {
                         "email": result.email,
-        "name": result.name,
-        "phone": result.phone,
-        "branch": result.branch,
-        "picture": result.picture,
+                        "name": result.name,
+                        "phone": result.phone,
+                        "branch": result.branch,
+                        "picture": result.picture,
                     }
                  return resp.status(200).json(jsonObject);
                  }
