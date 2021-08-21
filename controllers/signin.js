@@ -28,6 +28,7 @@ const handlesignin=(req,resp,User)=>{
                     {
                         //console.log("logged in");
                         if((req.body.admin=='true' && result.admin==true)||(req.body.admin=='false' && result.admin==false) ){
+                            
                         var jsonObject = 
                 {
                     "email": result.email,
@@ -35,7 +36,7 @@ const handlesignin=(req,resp,User)=>{
     "phone": result.phone,
     "branch": result.branch,
     "picture": result.picture,
-    "isvalid":true
+    "isvalid":result.admin
                 }
                         return resp.status(200).json(jsonObject);
                     }
