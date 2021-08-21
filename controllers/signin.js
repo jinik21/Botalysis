@@ -27,6 +27,7 @@ const handlesignin=(req,resp,User)=>{
                     else
                     {
                         //console.log("logged in");
+                        if((req.body.admin=='true' && result.admin==true)||(req.body.admin=='false' && result.admin==false) ){
                         var jsonObject = 
                 {
                     "email": result.email,
@@ -34,9 +35,14 @@ const handlesignin=(req,resp,User)=>{
     "phone": result.phone,
     "branch": result.branch,
     "picture": result.picture,
+    "isvalid":true
                 }
                         return resp.status(200).json(jsonObject);
                     }
+                    else{
+                        return resp.status(400).json("Not Logged in");
+                    }
+                }
                 }
     });
         }
