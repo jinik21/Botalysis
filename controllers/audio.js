@@ -55,10 +55,13 @@ const audio = async (req, resp, email,Audio) => {
       console.log(positive);
       console.log(negative);
       console.log(neutral);
-      const sm=positive+negative+neutral;
-      const pospercent=(positive*100)/sm;
-      const negpercent=(negative*100)/sm;
-      const nuetpercent=(neutral*100)/sm;
+      var sm=positive+negative+neutral;
+      var pospercent=(positive*100)/sm;
+      var negpercent=(negative*100)/sm;
+      var nuetpercent=(neutral*100)/sm;
+      pospercent=pospercent.toFixed(2);
+      negpercent=negpercent.toFixed(2);
+      nuetpercent=nuetpercent.toFixed(2);
       var sent=0;
       if(pospercent>negpercent && pospercent>nuetpercent )
       sent=1;

@@ -15,6 +15,7 @@ const audioProcess=require('./controllers/audioprocess');
 const audio=require('./controllers/audio');
 const allAudio=require('./controllers/allaudio');
 const allAudiouser=require('./controllers/allaudiouser');
+const allAudioallUsers=require('./controllers/allaudioallusers');
 const alluser=require('./controllers/alluser');
 
 
@@ -51,7 +52,8 @@ app.post('/api/signup',(req,resp)=>{signup.handlesignup(req,resp,User)})
 app.post('/api/process_audio',(req,resp)=>{audioProcess.processAudio(req,resp,Audio)});
 app.post('/api/sentiment',(req,resp)=>{audio.audio(req,resp,req.body.email,Audio)});
 app.post('/api/allsentimentuser',(req,resp)=>{allAudio.allaudio(req,resp,req.body.email,Audio)});
-app.post('/api/allusersaudioadmin',(req,resp)=>{allAudiouser.allaudiousers(req,resp,req.body.email,Audio)});
+app.post('/api/allusersaudioadmin',(req,resp)=>{allAudiouser.allaudiouser(req,resp,req.body.email,Audio)});
+app.get('/api/allusersallaudioadmin',(req,resp)=>{allAudioallUsers.allaudioallusers(req,resp,Audio)});
 app.get('/api/allusersadmin',(req,resp)=>{alluser.allusers(req,resp,User)});
 
 const port=process.env.PORT|| 3001;
