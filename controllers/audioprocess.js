@@ -10,7 +10,7 @@ const audio=require('./audio');
 
 
 const processAudio=async (req,resp,Audio)=>{
-    const authToken = await axios.get("http://localhost:3001/symbl-token");
+    const authToken = await axios.get("https://botalysis.herokuapp.com/symbl-token");
     console.log(req.body)
     const audioOption = {
         method: 'post',

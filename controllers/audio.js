@@ -12,7 +12,7 @@ const axios = require('axios');
 
 const audio = async (req, resp, email,Audio) => {
 
-  const rp = await axios.get("http://localhost:3001/symbl-token");
+  const rp = await axios.get("https://botalysis.herokuapp.com/symbl-token");
   const authToken = rp.data.accessToken;
   const usr=await Audio.find({'email':email}).sort({'date':-1}).limit(1);
   const conversationId=usr[0].conversationId;
