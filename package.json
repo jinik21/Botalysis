@@ -13,10 +13,6 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jinik21/Botalysis/issues"
-  },
-  "homepage": "https://github.com/jinik21/Botalysis#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "cors": "^2.8.5",
